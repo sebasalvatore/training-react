@@ -1,8 +1,8 @@
 {
-  "name": "react-boilerplate",
+  "name": "sovos-react-training",
   "private": true,
   "version": "2.5.6",
-  "description": "Boilerplate for [SurviveJS - React](http://survivejs.com/react/introduction/)",
+  "description": "Sovos React Training",
   "scripts": {
     "stats": "webpack --profile --json > stats.json",
     "start": "webpack-dev-server",
@@ -13,7 +13,7 @@
     "test:lint": "eslint ./app ./tests --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"
   },
   "keywords": [],
-  "author": "",
+  "author": "SovoS",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.9.0",
@@ -55,6 +55,9 @@
   },
   "dependencies": {
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "material-ui": "^0.15.4",
+    "react-router": "^2.8.1",
+    "react-tap-event-plugin": "^1.0.0"
   }
 }
