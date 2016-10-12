@@ -1,4 +1,6 @@
 import React, {Component} from 'react' 
+import UserDetail from './detail';
+
 
 class UserList extends Component{
 	constructor(){
@@ -12,16 +14,32 @@ class UserList extends Component{
 			{id:6, name:'peter capusoto',address:'666 Lomas st.'},
 			{id:7, name:'adrian veliz',address:'777 Lomas st.'}
 		];
+    this.selectedUser = {id:1, name:'No name', address:'No address'};
 	}
+
+  getUserDetails = (user) => {
+    this.selectedUser = user;
+    alert('Current value of selectedUser '+this.selectedUser.name);
+
+  }
 
 	render(){
 		return(   
-			<ul>
-				{this.usersList.map(user => <li key={user.id}>{user.name} </li>)}
-			</ul>
+      <div>
+        <ul>
+          {
+            this.usersList.map((user) =>{
+              return (
+                <li key={user.id} onClick={this.getUserDetails.bind(this, user)} >{user.name}</li>
+              );
+            })
+          }
+        </ul>
+        <UserDetail user={this.selectedUser}/>
+      </div>
 		);
 	}
-  
+
 } 
 
 export default UserList;
