@@ -39,7 +39,7 @@ const common = merge(
     }
   },
   parts.indexTemplate({
-    title: 'Kanban demo',
+    title: 'Sovos Training APP',
     appMountId: 'app'
   }),
   parts.loadJSX(PATHS.app),

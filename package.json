@@ -56,8 +56,8 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "material-ui": "^0.15.4",
     "react-router": "^2.8.1",
+    "material-ui": "^0.15.4",
     "react-tap-event-plugin": "^1.0.0"
   }
 }
