@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from './components/layout/Header';
 import Content from './components/layout/Content';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+ 
+injectTapEventPlugin();
  
 const App = () => (
   <MuiThemeProvider>
-  	<div>
+    <div>
       <Header />
       <Content />
-  	</div>
+    </div>
   </MuiThemeProvider>
 );
  

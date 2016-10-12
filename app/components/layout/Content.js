@@ -1,6 +1,8 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
+import UserList from '../people/list';
 
+const currentDate = new Date();
 const Content = () => (
   <Card>
     <CardHeader
@@ -9,7 +11,9 @@ const Content = () => (
     />
     <CardText>
       <div>
-      	Hello, I am your first static message showed inside a Card component.
+        Hello, I am your first static message showed inside a Card component.<br/>
+        <b>{currentDate.toString()}</b>
+        <UserList />
       </div>
     </CardText>
   </Card>
