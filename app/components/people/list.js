@@ -1,5 +1,6 @@
 import React, {Component} from 'react' 
 import UserDetail from './detail';
+import UserDetailLine from './detail-line';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
@@ -32,7 +33,6 @@ class UserList extends Component{
   }
 
   deleteUser = (id) => {
-    alert();
     this.setState({usersList: this.state.usersList.filter(user => user.id !== id)});
   }
 
@@ -80,7 +80,7 @@ class UserList extends Component{
           {
             this.state.usersList.map((user) =>{
               return (
-                <li key={user.id} onClick={this.getUserDetails.bind(this, user)} >{user.name}</li>
+                <UserDetailLine key={user.id} user={user} onSelected={this.getUserDetails} />
               );
             })
           }

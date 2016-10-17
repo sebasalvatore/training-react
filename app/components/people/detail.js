@@ -12,6 +12,26 @@ class UserDetail extends Component{
     }
   }
 
+  componentWillMount = () => {
+    console.log('UserDetail componentWillMount');
+  }
+
+  componentDidMount = () => {
+    console.log('UserDetail componentDidMount');
+  }
+
+  componentWillUnmount = () => {
+    console.log('UserDetail componentWillUnmount');
+  }
+
+  componentWillUpdate = () => {
+    console.log('UserDetail componentWillUpdate');
+  }
+
+  componentDidUpdate = () => {
+    console.log('UserDetail componentDidUpdate');
+  }
+
   render(){
       const iconStyles = {
         marginRight: 24
