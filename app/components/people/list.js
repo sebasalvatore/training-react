@@ -31,6 +31,11 @@ class UserList extends Component{
     this.setState({isDialogOpen:false});
   }
 
+  deleteUser = (id) => {
+    alert();
+    this.setState({usersList: this.state.usersList.filter(user => user.id !== id)});
+  }
+
   openDialog = () => {
     this.setState({isDialogOpen:true});
   }
@@ -69,7 +74,6 @@ class UserList extends Component{
           <TextField
             floatingLabelText="Address"
             ref={(addressInputRef) => this._inputAddress = addressInputRef}
-
           />
         </Dialog>
         <ul>
@@ -81,7 +85,7 @@ class UserList extends Component{
             })
           }
         </ul>
-        <UserDetail user={this.state.selectedUser}/>
+        <UserDetail user={this.state.selectedUser} onDeleteUser={this.deleteUser}/>
       </div>
 		);
 	}
