@@ -1,6 +1,8 @@
 import React, {Component} from 'react' 
 import UserDetail from './detail';
-
+import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+import TextField from 'material-ui/TextField';
 
 class UserList extends Component{
 	constructor(){
@@ -15,17 +17,61 @@ class UserList extends Component{
         {id:6, name:'peter capusoto',address:'666 Lomas st.'},
         {id:7, name:'adrian veliz',address:'777 Lomas st.'}
       ],
-      selectedUser: {id:1, name:'No name', address:'No address'}
+      selectedUser: {id:1, name:'No name', address:'No address'},
+      isDialogOpen:false
     };
 	}
 
   getUserDetails = (user) => {
     this.setState({selectedUser:user});
+  } 
+
+  addUser = () => {
+    this.setState({usersList: this.state.usersList.concat([{id:this.state.usersList.length+1,name:this._inputName.input.value,address:this._inputAddress.input.value}])});
+    this.setState({isDialogOpen:false});
+  }
+
+  openDialog = () => {
+    this.setState({isDialogOpen:true});
+  }
+
+  closeDialog = () => {
+    this.setState({isDialogOpen:false});
   }
 
 	render(){
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onTouchTap={this.closeDialog}
+      />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        onTouchTap={this.addUser}
+      />
+    ];
+
 		return(   
       <div>
+        <FlatButton label="Add New person" primary={true} onClick={this.openDialog}/>
+        <Dialog
+          title="New person"
+          actions={actions}
+          modal={true}
+          open={this.state.isDialogOpen}
+        >
+          <TextField
+            floatingLabelText="Name"
+            ref={(nameInputRef) => this._inputName = nameInputRef}
+          />
+          <TextField
+            floatingLabelText="Address"
+            ref={(addressInputRef) => this._inputAddress = addressInputRef}
+
+          />
+        </Dialog>
         <ul>
           {
             this.state.usersList.map((user) =>{
